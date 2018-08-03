@@ -55,23 +55,24 @@ namespace TimerApp
         private void StopTimer()
         {
             timer.Stop();
-            _currentTime = _breakTime;
-
-            //Update Label and start button using Invoke
-            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnStart.Enabled = true; });
 
             if (state == 'W')
             {
+                _currentTime = _breakTime;
                 state = 'B';
                 this.BackColor = Color.Cyan;
                 MessageBox.Show("Your break is starting now.", "Time to break", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {
+                _currentTime = _workingTime;
                 state = 'W';
                 this.BackColor = Color.HotPink;
                 MessageBox.Show("The end of the break!!!","The end",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
             }
+            //Update Label and start button using Invoke
+
+            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnStart.Enabled = true; });
         }
 
         private void LabelUpdate(object source, ElapsedEventArgs e)
