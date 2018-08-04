@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
@@ -19,11 +21,15 @@ namespace TimerApp
         private DateTime _currentTime;
         private DateTime _workingTime;
         private DateTime _breakTime;
+        private SoundPlayer despacito;
+        private FileInfo[] musicFiles;
         public TimerStartForm(DateTime workingTime, DateTime breakTime)
         {
             _workingTime = workingTime;
             _breakTime = breakTime;
             _currentTime = _workingTime;
+            var musicDir = new DirectoryInfo("Music");
+            musicFiles = musicDir.GetFiles(@"*.wav");
             InitializeComponent();
             lblTime.Text = _workingTime.ToString("mm:ss");
         }
@@ -55,6 +61,16 @@ namespace TimerApp
         private void StopTimer()
         {
             timer.Stop();
+            try
+            {
+                
+                despacito = new SoundPlayer(musicFiles[new Random().Next(0,musicFiles.Length)].FullName);
+            }
+            catch
+            {
+                MessageBox.Show("No despacito found.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            despacito.Play();
 
             if (state == 'W')
             {
@@ -71,8 +87,9 @@ namespace TimerApp
                 MessageBox.Show("The end of the break!!!","The end",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
             }
             //Update Label and start button using Invoke
-
+            despacito.Stop();
             this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnStart.Enabled = true; });
+
         }
 
         private void LabelUpdate(object source, ElapsedEventArgs e)
@@ -113,6 +130,11 @@ namespace TimerApp
                 _currentTime = _breakTime;
             }
             this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss");btnStart.Enabled = true;});
+        }
+
+        private void TimerStartForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

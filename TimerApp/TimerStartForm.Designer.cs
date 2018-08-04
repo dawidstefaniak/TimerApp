@@ -129,6 +129,7 @@
             this.Name = "TimerStartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Timer";
+            this.Load += new System.EventHandler(this.TimerStartForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
