@@ -21,7 +21,7 @@ namespace TimerApp
         private DateTime _currentTime;
         private DateTime _workingTime;
         private DateTime _breakTime;
-        private SoundPlayer despacito;
+        private SoundPlayer soundPlayer;
         private FileInfo[] musicFiles;
         public TimerStartForm(DateTime workingTime, DateTime breakTime)
         {
@@ -63,14 +63,14 @@ namespace TimerApp
             timer.Stop();
             try
             {
-                
-                despacito = new SoundPlayer(musicFiles[new Random().Next(0,musicFiles.Length)].FullName);
+                soundPlayer = new SoundPlayer(musicFiles[new Random().Next(0,musicFiles.Length)].FullName);
             }
             catch
             {
-                MessageBox.Show("No despacito found.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("No music files found.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-            despacito.Play();
+
+            soundPlayer.Play();
 
             if (state == 'W')
             {
@@ -79,6 +79,7 @@ namespace TimerApp
                 this.BackColor = Color.Cyan;
                 MessageBox.Show("Your break is starting now.", "Time to break", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
+
             else
             {
                 _currentTime = _workingTime;
@@ -86,10 +87,10 @@ namespace TimerApp
                 this.BackColor = Color.HotPink;
                 MessageBox.Show("The end of the break!!!","The end",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
             }
-            //Update Label and start button using Invoke
-            despacito.Stop();
-            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnStart.Enabled = true; });
 
+            //Update Label and start button using Invoke
+            soundPlayer.Stop();
+            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnStart.Enabled = true; });
         }
 
         private void LabelUpdate(object source, ElapsedEventArgs e)
@@ -118,23 +119,27 @@ namespace TimerApp
             timer.Start();
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
+        private void btnBreakReset_Click(object sender, EventArgs e)
         {
             timer.Stop();
-            if (state == 'W')
-            {
-                _currentTime = _workingTime;
-            }
-            else
-            {
-                _currentTime = _breakTime;
-            }
+            _currentTime = _breakTime;
+            this.BackColor = Color.Cyan;
+            //Update time in form
             this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss");btnStart.Enabled = true;});
         }
 
         private void TimerStartForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnWorkReset_Click(object sender, EventArgs e)
+        {
+            timer.Stop();
+            _currentTime = _workingTime;
+            this.BackColor = Color.HotPink;
+            //Update time in form
+            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnStart.Enabled = true; });
         }
     }
 }
