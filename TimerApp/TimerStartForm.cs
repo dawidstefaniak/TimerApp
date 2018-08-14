@@ -15,7 +15,7 @@ namespace TimerApp
 {
     public partial class TimerStartForm : Form
     {
-        private System.Timers.Timer timer;
+        private System.Timers.Timer timer = new System.Timers.Timer(1000);
         //State W for work, state B for Break
         private char state = 'W';
         private DateTime _currentTime;
@@ -42,7 +42,6 @@ namespace TimerApp
         private void StartTimer()
         {
             btnStart.Enabled = false;
-            timer = new System.Timers.Timer(1000);
             //Updates the label every second
             timer.Elapsed += EverySecondRefresh;
             timer.Elapsed += LabelUpdate;
@@ -127,12 +126,6 @@ namespace TimerApp
             //Update time in form
             this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss");btnStart.Enabled = true;});
         }
-
-        private void TimerStartForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnWorkReset_Click(object sender, EventArgs e)
         {
             timer.Stop();
