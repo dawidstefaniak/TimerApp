@@ -25,26 +25,22 @@ namespace TimerApp
         private FileInfo[] musicFiles;
         public TimerStartForm(DateTime workingTime, DateTime breakTime)
         {
+            InitializeComponent();
+
             _workingTime = workingTime;
             _breakTime = breakTime;
             _currentTime = _workingTime;
             var musicDir = new DirectoryInfo("Music");
             musicFiles = musicDir.GetFiles(@"*.wav");
-            InitializeComponent();
             lblTime.Text = _workingTime.ToString("mm:ss");
-        }
-
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-            StartTimer();
+            timer.Elapsed += EverySecondRefresh;
+            timer.Elapsed += LabelUpdate;
         }
 
         private void StartTimer()
         {
-            btnStart.Enabled = false;
+            btnResume.Enabled = false;
             //Updates the label every second
-            timer.Elapsed += EverySecondRefresh;
-            timer.Elapsed += LabelUpdate;
             timer.Enabled = true;
         }
 
@@ -89,7 +85,7 @@ namespace TimerApp
 
             //Update Label and start button using Invoke
             soundPlayer.Stop();
-            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnStart.Enabled = true; });
+            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnResume.Enabled = true; });
         }
 
         private void LabelUpdate(object source, ElapsedEventArgs e)
@@ -115,24 +111,26 @@ namespace TimerApp
         {
             btnResume.Enabled = false;
             btnPause.Enabled = true;
-            timer.Start();
+            StartTimer();
         }
 
         private void btnBreakReset_Click(object sender, EventArgs e)
         {
             timer.Stop();
             _currentTime = _breakTime;
+            state = 'B';
             this.BackColor = Color.Cyan;
             //Update time in form
-            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss");btnStart.Enabled = true;});
+            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss");btnResume.Enabled = true; btnPause.Enabled = false; });
         }
         private void btnWorkReset_Click(object sender, EventArgs e)
         {
             timer.Stop();
             _currentTime = _workingTime;
+            state = 'W';
             this.BackColor = Color.HotPink;
             //Update time in form
-            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnStart.Enabled = true; });
+            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnResume.Enabled = true; btnPause.Enabled = false; });
         }
     }
 }

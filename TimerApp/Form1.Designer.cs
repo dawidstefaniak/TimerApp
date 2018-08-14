@@ -40,52 +40,52 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(42, 49);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 37);
+            this.label1.Size = new System.Drawing.Size(96, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Work:";
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.CustomFormat = "mm:s";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(162, 49);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(170, 43);
+            this.dateTimePicker1.Size = new System.Drawing.Size(170, 47);
             this.dateTimePicker1.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(42, 106);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 37);
+            this.label2.Size = new System.Drawing.Size(100, 39);
             this.label2.TabIndex = 2;
             this.label2.Text = "Break:";
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.CustomFormat = "mm:s";
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Location = new System.Drawing.Point(162, 106);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(170, 43);
+            this.dateTimePicker2.Size = new System.Drawing.Size(170, 47);
             this.dateTimePicker2.TabIndex = 3;
             // 
             // StartBtn
             // 
-            this.StartBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartBtn.Location = new System.Drawing.Point(50, 163);
+            this.StartBtn.Font = new System.Drawing.Font("Calibri", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartBtn.Location = new System.Drawing.Point(49, 163);
             this.StartBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.StartBtn.Name = "StartBtn";
-            this.StartBtn.Size = new System.Drawing.Size(314, 188);
+            this.StartBtn.Size = new System.Drawing.Size(314, 110);
             this.StartBtn.TabIndex = 4;
             this.StartBtn.Text = "Start";
             this.StartBtn.UseVisualStyleBackColor = true;
@@ -94,7 +94,8 @@
             // resultsBtn
             // 
             this.resultsBtn.Enabled = false;
-            this.resultsBtn.Location = new System.Drawing.Point(50, 360);
+            this.resultsBtn.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultsBtn.Location = new System.Drawing.Point(49, 283);
             this.resultsBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.resultsBtn.Name = "resultsBtn";
             this.resultsBtn.Size = new System.Drawing.Size(314, 35);
@@ -106,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 455);
+            this.ClientSize = new System.Drawing.Size(418, 374);
             this.Controls.Add(this.resultsBtn);
             this.Controls.Add(this.StartBtn);
             this.Controls.Add(this.dateTimePicker2);
