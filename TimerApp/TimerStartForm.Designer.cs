@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimerStartForm));
             this.lblTime = new System.Windows.Forms.Label();
             this.btnPause = new System.Windows.Forms.Button();
@@ -36,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnWorkReset = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // lblTime
@@ -119,6 +121,12 @@
             this.btnWorkReset.UseVisualStyleBackColor = true;
             this.btnWorkReset.Click += new System.EventHandler(this.btnWorkReset_Click);
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "Start the timer.";
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
+            // 
             // TimerStartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -139,6 +147,7 @@
             this.Name = "TimerStartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Timer";
+            this.Resize += new System.EventHandler(this.TimerStartForm_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,5 +162,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnWorkReset;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

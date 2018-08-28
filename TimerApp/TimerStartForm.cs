@@ -93,7 +93,7 @@ namespace TimerApp
         {
             try
             {
-                this.BeginInvoke((System.Windows.Forms.MethodInvoker) delegate(){lblTime.Text = _currentTime.ToString("mm:ss");});
+                this.BeginInvoke((System.Windows.Forms.MethodInvoker) delegate(){lblTime.Text = _currentTime.ToString("mm:ss"); notifyIcon1.Text = $"Time left: {_currentTime.ToString("mm:ss")}"; });
             }
             catch
             {
@@ -123,6 +123,7 @@ namespace TimerApp
             //Update time in form
             this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss");btnResume.Enabled = true; btnPause.Enabled = false; });
         }
+
         private void btnWorkReset_Click(object sender, EventArgs e)
         {
             timer.Stop();
@@ -132,6 +133,24 @@ namespace TimerApp
 
             //Update time in form
             this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnResume.Enabled = true; btnPause.Enabled = false; });
+        }
+
+        //Hide app to taskbar when the window is being minimized
+        private void TimerStartForm_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+                notifyIcon1.Visible = true;
+            }
+        }
+
+        //TODO Baloon tip
+        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+            notifyIcon1.Visible = false;
         }
     }
 }
