@@ -39,9 +39,13 @@ namespace TimerApp
             {
                 MessageBox.Show("Timers cannot be set at 0:00", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             else
             {
                 var timer = new TimerStartForm(dateTimePicker1.Value, dateTimePicker2.Value);
+                this.Hide();
+                //When next form is closed, this form appears again
+                timer.FormClosed += (s,args) => this.Show();
                 timer.Show();
             }
         }
