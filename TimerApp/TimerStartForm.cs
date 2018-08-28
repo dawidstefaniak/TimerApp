@@ -40,6 +40,7 @@ namespace TimerApp
         private void StartTimer()
         {
             btnResume.Enabled = false;
+            btnPause.Enabled = true;
             //Updates the label every second
             timer.Enabled = true;
         }
@@ -56,16 +57,16 @@ namespace TimerApp
         private void StopTimer()
         {
             timer.Stop();
+
             try
             {
                 soundPlayer = new SoundPlayer(musicFiles[new Random().Next(0,musicFiles.Length)].FullName);
+                soundPlayer.Play();
             }
             catch
             {
                 MessageBox.Show("No music files found.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-
-            soundPlayer.Play();
 
             if (state == 'W')
             {
@@ -109,8 +110,6 @@ namespace TimerApp
 
         private void btnResume_Click(object sender, EventArgs e)
         {
-            btnResume.Enabled = false;
-            btnPause.Enabled = true;
             StartTimer();
         }
 
@@ -120,6 +119,7 @@ namespace TimerApp
             _currentTime = _breakTime;
             state = 'B';
             this.BackColor = Color.Cyan;
+
             //Update time in form
             this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss");btnResume.Enabled = true; btnPause.Enabled = false; });
         }
@@ -129,6 +129,7 @@ namespace TimerApp
             _currentTime = _workingTime;
             state = 'W';
             this.BackColor = Color.HotPink;
+
             //Update time in form
             this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnResume.Enabled = true; btnPause.Enabled = false; });
         }
