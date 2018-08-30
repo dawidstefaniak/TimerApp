@@ -126,6 +126,7 @@
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "Start the timer.";
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
+            notifyIcon1.BalloonTipClicked += new System.EventHandler(MaximizeTheApp);
             // 
             // TimerStartForm
             // 

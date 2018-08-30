@@ -23,6 +23,7 @@ namespace TimerApp
         private DateTime _breakTime;
         private SoundPlayer soundPlayer;
         private FileInfo[] musicFiles;
+        private bool ballonTipWasShown = false;
         public TimerStartForm(DateTime workingTime, DateTime breakTime)
         {
             InitializeComponent();
@@ -138,15 +139,32 @@ namespace TimerApp
         //Hide app to taskbar when the window is being minimized
         private void TimerStartForm_Resize(object sender, EventArgs e)
         {
+            MinimizeTheApp();
+        }
+
+        private void MinimizeTheApp()
+        {
             if (this.WindowState == FormWindowState.Minimized)
             {
                 this.Hide();
                 notifyIcon1.Visible = true;
+                if (!ballonTipWasShown)
+                {
+                    ballonTipWasShown = true;
+                    notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+                    notifyIcon1.BalloonTipText = @"The timer is now hidden in the system tray.";
+                    notifyIcon1.ShowBalloonTip(5000);
+                }
             }
         }
 
         //TODO Baloon tip
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            MaximizeTheApp(this, new EventArgs());
+        }
+
+        private void MaximizeTheApp(object sender, EventArgs e)
         {
             this.Show();
             this.WindowState = FormWindowState.Normal;
