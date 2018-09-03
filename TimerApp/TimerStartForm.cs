@@ -80,7 +80,7 @@ namespace TimerApp
                 MessageBox.Show("Your break is starting now.", "Time to break", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
 
-            else
+            else if (state == 'B')
             {
                 _currentTime = _workingTime;
                 state = 'W';
