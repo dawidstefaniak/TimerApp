@@ -34,10 +34,12 @@ namespace TimerApp
 
         private void StartBtn_Click(object sender, EventArgs e)
         {
-            if ((dateTimePicker1.Value.Minute == 0 && dateTimePicker1.Value.Second == 0) ||
-                (dateTimePicker2.Value.Minute == 0 && dateTimePicker2.Value.Second == 0))
+            if (((dateTimePicker1.Value.Minute == 0 && dateTimePicker1.Value.Second == 0) ||
+                (dateTimePicker2.Value.Minute == 0 && dateTimePicker2.Value.Second == 0)) ||
+                ((dateTimePicker1.Value.Minute == 0 && dateTimePicker1.Value.Second == 1) ||
+                (dateTimePicker2.Value.Minute == 0 && dateTimePicker2.Value.Second == 1)))
             {
-                MessageBox.Show("Timers cannot be set at 0:00", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Timers cannot be set at 0:00 or 0:01.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             else
