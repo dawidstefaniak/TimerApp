@@ -117,10 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnResume.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAu1JREFUeF7t3MeqFEEYhuEjYs5ZDKgbvQQ33oJLdy4VE+aAGT3miBFB3Ikbb0XX
+        4s6cc06gvj8oyPAdz5nQPV3V3wvPfuovdHS6unqcc84555xzzjnnnHPOOeecc87l3nAsxWkcxWIMgetC
+        i/AIvxrcwXIMhSup+fiAxs34112shDemhK5CbYJyH6sxDK6gnkAN/38eYC3ie8d1ODXwgYrvnfUYAdeh
+        1KCbFX/KNmIkXJupAbfqKTZjFFyLqcG26xm2YjRck6mBdspzbIc3ponUIDvtJXZiDFw/qQEW5RV2Yyxc
+        H6nBFe019mI8XENqYGV5i/2YAPcnNaiyvcMBTETtUwPqlvc4hEmobWow3Ra/Ph/BFNQuNZCqiI05jqmo
+        TWoQVfMRJzEN2acGUFWfEI+YpyPb1MKr7jPOYAaySy04FV9wHrOQTWqhqfmKi5iN5FMLTNU3XMIcJJta
+        WOpiYy5jLpJLLSgX33EF85BMaiG5iX+VxfGlJFILyNFPLEHlUx8+V3ECczAqnfrgOVuASqc+dM4WotKp
+        D52rH6j8QzD1wXN1DZVPffAc3UYSTyLVh89J/K/9LJI5E6YWkYP4wfECkvslWC0mZfGT/DnMRJKpRaUo
+        m4dWanEpiY3I6rGuWmQK4vn6KWR38EEttsriBMoJZHs0SC26iuKM1jFkf3hOLb5K4njpYUxGLVJDqII4
+        gH0QtTvnq4bRTfGKQi9qexJeDaUb3mAfav+uiBpOmf6+TTUOjtSQyhDvG+6BN6IhNawixRu5u+AXP/tI
+        Da0IL7ADfjW6n9TwOikuD9gGXx4wwNQQOyGu19gC33vSZGqY7YgLaDbBNwO1mBpqKx5jA3x3Vpup4TYj
+        LjFbB29Eh4oHPGrQ/XkIX/NXQDehBt6XuG9xDXwRZkGtgBp8o3tYBV8VW3CDcB1qE0Jcphyb5o0osdiU
+        +GvoFuI9inADy+CN6HLxJe1NcM4555xzzjnnnHPOOeecc84551yb9fT8Bk5IR6BtISIbAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
   <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="notifyIcon1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAAAAAAAEAIAAoIAQAZgAAABAQAAABACAAaAQAAI4gBAAwMAAAAQAgAKglAAD2JAQAICAAAAEA

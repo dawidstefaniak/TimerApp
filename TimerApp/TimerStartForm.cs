@@ -24,6 +24,7 @@ namespace TimerApp
         private SoundPlayer soundPlayer;
         private FileInfo[] musicFiles;
         private bool ballonTipWasShown = false;
+
         public TimerStartForm(DateTime workingTime, DateTime breakTime)
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace TimerApp
             _breakTime = breakTime;
             _currentTime = _workingTime;
             var musicDir = new DirectoryInfo("Music");
-            musicFiles = musicDir.GetFiles(@"*.wav");
+            musicFiles = musicDir.GetFiles();
             lblTime.Text = _workingTime.ToString("mm:ss");
             timer.Elapsed += EverySecondRefresh;
             timer.Elapsed += LabelUpdate;
@@ -58,11 +59,15 @@ namespace TimerApp
         private void StopTimer()
         {
             timer.Stop();
-
+            if(this.WindowState == FormWindowState.Minimized)
+                Maximize();
             try
             {
-                soundPlayer = new SoundPlayer(musicFiles[new Random().Next(0,musicFiles.Length)].FullName);
-                soundPlayer.Play();
+                if (state == 'W')
+                    soundPlayer = new SoundPlayer(musicFiles.FirstOrDefault(x => x.Name == "bicycle.wav").FullName);
+                else
+                    soundPlayer = new SoundPlayer(musicFiles.FirstOrDefault(x => x.Name == "airhorn.wav").FullName);
+                soundPlayer.PlayLooping();
             }
             catch
             {
@@ -73,7 +78,7 @@ namespace TimerApp
             {
                 _currentTime = _breakTime;
                 state = 'B';
-                this.BackColor = Color.Cyan;
+                lblTime.BackColor = Color.Cyan;
                 MessageBox.Show("Your break is starting now.", "Time to break", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
 
@@ -81,12 +86,13 @@ namespace TimerApp
             {
                 _currentTime = _workingTime;
                 state = 'W';
-                this.BackColor = Color.HotPink;
+                lblTime.BackColor = Color.HotPink;
                 MessageBox.Show("The end of the break!!!","The end",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
             }
+            //After clicking on messagebox, stop the music
+            soundPlayer.Stop();
 
             //Update Label and start button using Invoke
-            soundPlayer.Stop();
             this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnResume.Enabled = true; });
         }
 
@@ -119,7 +125,7 @@ namespace TimerApp
             timer.Stop();
             _currentTime = _breakTime;
             state = 'B';
-            this.BackColor = Color.Cyan;
+            lblTime.BackColor = Color.Cyan;
 
             //Update time in form
             this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss");btnResume.Enabled = true; btnPause.Enabled = false; });
@@ -130,7 +136,7 @@ namespace TimerApp
             timer.Stop();
             _currentTime = _workingTime;
             state = 'W';
-            this.BackColor = Color.HotPink;
+            lblTime.BackColor = Color.HotPink;
 
             //Update time in form
             this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnResume.Enabled = true; btnPause.Enabled = false; });
@@ -166,9 +172,19 @@ namespace TimerApp
 
         private void MaximizeTheApp(object sender, EventArgs e)
         {
+            Maximize();
+        }
+
+        private void Maximize()
+        {
             this.Show();
             this.WindowState = FormWindowState.Normal;
             notifyIcon1.Visible = false;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
