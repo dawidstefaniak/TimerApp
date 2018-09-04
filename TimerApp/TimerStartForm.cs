@@ -58,7 +58,34 @@ namespace TimerApp
 
         private void StopTimer()
         {
+            DialogResult dialogResult = new DialogResult();
             timer.Stop();
+            PlayMusic();
+            if (state == 'W')
+            {
+                _currentTime = _breakTime;
+                state = 'B';
+                lblTime.BackColor = Color.Cyan;
+                dialogResult = MessageBox.Show("Your break is starting now.", "Time to break", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+
+            else if (state == 'B')
+            {
+                _currentTime = _workingTime;
+                state = 'W';
+                lblTime.BackColor = Color.HotPink;
+                dialogResult = MessageBox.Show("The end of the break!!!","The end",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+            }
+
+            //After clicking on messagebox, stop the music
+            soundPlayer.Stop();
+
+            //Update Label and start button using Invoke
+            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnResume.Enabled = true; });
+        }
+
+        private void PlayMusic()
+        {
             try
             {
                 if (state == 'W')
@@ -69,29 +96,8 @@ namespace TimerApp
             }
             catch
             {
-                MessageBox.Show("No music files found.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("No music files found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            if (state == 'W')
-            {
-                _currentTime = _breakTime;
-                state = 'B';
-                lblTime.BackColor = Color.Cyan;
-                MessageBox.Show("Your break is starting now.", "Time to break", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-
-            else if (state == 'B')
-            {
-                _currentTime = _workingTime;
-                state = 'W';
-                lblTime.BackColor = Color.HotPink;
-                MessageBox.Show("The end of the break!!!","The end",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
-            }
-            //After clicking on messagebox, stop the music
-            soundPlayer.Stop();
-
-            //Update Label and start button using Invoke
-            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnResume.Enabled = true; });
         }
 
         private void LabelUpdate(object source, ElapsedEventArgs e)
@@ -180,7 +186,7 @@ namespace TimerApp
             notifyIcon1.Visible = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void backbtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }

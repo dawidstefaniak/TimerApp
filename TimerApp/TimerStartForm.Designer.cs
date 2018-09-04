@@ -38,7 +38,7 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.Back = new System.Windows.Forms.Button();
+            this.backbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTime
@@ -141,19 +141,19 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Break";
             // 
-            // Back
+            // backbtn
             // 
-            this.Back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Back.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Back.Location = new System.Drawing.Point(13, 352);
-            this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(422, 39);
-            this.Back.TabIndex = 12;
-            this.Back.Text = "Back";
-            this.Back.UseVisualStyleBackColor = false;
-            this.Back.Click += new System.EventHandler(this.button1_Click);
+            this.backbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.backbtn.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.backbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backbtn.Location = new System.Drawing.Point(13, 352);
+            this.backbtn.Name = "backbtn";
+            this.backbtn.Size = new System.Drawing.Size(422, 39);
+            this.backbtn.TabIndex = 12;
+            this.backbtn.Text = "Back";
+            this.backbtn.UseVisualStyleBackColor = false;
+            this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
             // 
             // TimerStartForm
             // 
@@ -161,7 +161,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(447, 400);
-            this.Controls.Add(this.Back);
+            this.Controls.Add(this.backbtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnWorkReset);
@@ -192,6 +192,6 @@
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button Back;
+        private System.Windows.Forms.Button backbtn;
     }
 }

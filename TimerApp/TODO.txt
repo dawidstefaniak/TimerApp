@@ -1,4 +1,4 @@
 TODO:
 -Change date-time window to the proper one
 -Make reset buttons more transparent
--The message box should choose option to start the timer
+-The message box should choose option to start the timer / https://stackoverflow.com/questions/6932792/how-to-create-a-custom-messagebox
