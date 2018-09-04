@@ -118,6 +118,7 @@
     <Content Include="Music\bicycle.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="TODO.txt" />
     <Content Include="watch.ico" />
   </ItemGroup>
   <ItemGroup>

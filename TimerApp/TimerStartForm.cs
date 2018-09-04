@@ -34,8 +34,8 @@ namespace TimerApp
             _currentTime = _workingTime;
             var musicDir = new DirectoryInfo("Music");
             musicFiles = musicDir.GetFiles();
-            lblTime.Text = _workingTime.ToString("mm:ss");
-            timer.Elapsed += EverySecondRefresh;
+            lblTime.Text = _workingTime.ToString("HH:mm:ss");
+            timer.Elapsed += timer_tick;
             timer.Elapsed += LabelUpdate;
         }
 
@@ -50,10 +50,10 @@ namespace TimerApp
             });
         }
 
-        private void EverySecondRefresh(object source, ElapsedEventArgs e)
+        private void timer_tick(object source, ElapsedEventArgs e)
         {
             _currentTime = _currentTime.AddSeconds(-1);
-            if (_currentTime.Minute == 0 && _currentTime.Second == 0)
+            if (_currentTime.Minute == 0 && _currentTime.Second == 0 && _currentTime.Hour == 0)
             {
                 StopTimer();
             }
@@ -85,7 +85,7 @@ namespace TimerApp
             soundPlayer.Stop();
 
             //Update Label and start button using Invoke
-            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnResume.Enabled = true; });
+            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("HH:mm:ss"); btnResume.Enabled = true; });
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -113,7 +113,7 @@ namespace TimerApp
         {
             try
             {
-                this.BeginInvoke((System.Windows.Forms.MethodInvoker) delegate(){lblTime.Text = _currentTime.ToString("mm:ss"); notifyIcon1.Text = $"Time left: {_currentTime.ToString("mm:ss")}"; });
+                this.BeginInvoke((System.Windows.Forms.MethodInvoker) delegate(){lblTime.Text = _currentTime.ToString("HH:mm:ss"); notifyIcon1.Text = $"Time left: {_currentTime.ToString("HH:mm:ss")}"; });
             }
             catch
             {
@@ -141,7 +141,7 @@ namespace TimerApp
             lblTime.BackColor = Color.Cyan;
 
             //Update time in form
-            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss");btnResume.Enabled = true; btnPause.Enabled = false; });
+            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("HH:mm:ss");btnResume.Enabled = true; btnPause.Enabled = false; });
         }
 
         private void btnWorkReset_Click(object sender, EventArgs e)
@@ -152,7 +152,7 @@ namespace TimerApp
             lblTime.BackColor = Color.HotPink;
 
             //Update time in form
-            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnResume.Enabled = true; btnPause.Enabled = false; });
+            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("HH:mm:ss"); btnResume.Enabled = true; btnPause.Enabled = false; });
         }
 
         //Hide app to taskbar when the window is being minimized

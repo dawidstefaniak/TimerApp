@@ -47,12 +47,11 @@
             this.lblTime.BackColor = System.Drawing.Color.HotPink;
             this.lblTime.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTime.Font = new System.Drawing.Font("Calibri", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(13, 14);
-            this.lblTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTime.Location = new System.Drawing.Point(9, 9);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(408, 178);
+            this.lblTime.Size = new System.Drawing.Size(398, 119);
             this.lblTime.TabIndex = 0;
-            this.lblTime.Text = "99:99";
+            this.lblTime.Text = "99:99:99";
             // 
             // btnPause
             // 
@@ -61,10 +60,9 @@
             this.btnPause.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.btnPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPause.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPause.Location = new System.Drawing.Point(208, 284);
-            this.btnPause.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPause.Location = new System.Drawing.Point(139, 185);
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(77, 60);
+            this.btnPause.Size = new System.Drawing.Size(51, 39);
             this.btnPause.TabIndex = 2;
             this.btnPause.Text = "▎ ▎";
             this.btnPause.UseVisualStyleBackColor = false;
@@ -77,10 +75,9 @@
             this.btnResume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResume.Font = new System.Drawing.Font("Bauhaus 93", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResume.Image = ((System.Drawing.Image)(resources.GetObject("btnResume.Image")));
-            this.btnResume.Location = new System.Drawing.Point(13, 197);
-            this.btnResume.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnResume.Location = new System.Drawing.Point(9, 128);
             this.btnResume.Name = "btnResume";
-            this.btnResume.Size = new System.Drawing.Size(187, 147);
+            this.btnResume.Size = new System.Drawing.Size(125, 96);
             this.btnResume.TabIndex = 3;
             this.btnResume.UseVisualStyleBackColor = false;
             this.btnResume.Click += new System.EventHandler(this.btnResume_Click);
@@ -91,10 +88,9 @@
             this.btnBreakReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnBreakReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBreakReset.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBreakReset.Location = new System.Drawing.Point(317, 241);
-            this.btnBreakReset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBreakReset.Location = new System.Drawing.Point(321, 159);
             this.btnBreakReset.Name = "btnBreakReset";
-            this.btnBreakReset.Size = new System.Drawing.Size(41, 36);
+            this.btnBreakReset.Size = new System.Drawing.Size(27, 23);
             this.btnBreakReset.TabIndex = 4;
             this.btnBreakReset.Text = "■";
             this.btnBreakReset.UseVisualStyleBackColor = false;
@@ -106,9 +102,10 @@
             this.btnWorkReset.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btnWorkReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWorkReset.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWorkReset.Location = new System.Drawing.Point(317, 197);
+            this.btnWorkReset.Location = new System.Drawing.Point(321, 130);
+            this.btnWorkReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnWorkReset.Name = "btnWorkReset";
-            this.btnWorkReset.Size = new System.Drawing.Size(41, 36);
+            this.btnWorkReset.Size = new System.Drawing.Size(27, 23);
             this.btnWorkReset.TabIndex = 7;
             this.btnWorkReset.Text = "■";
             this.btnWorkReset.UseVisualStyleBackColor = false;
@@ -125,9 +122,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(364, 204);
+            this.label2.Location = new System.Drawing.Point(353, 135);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 24);
+            this.label2.Size = new System.Drawing.Size(37, 17);
             this.label2.TabIndex = 9;
             this.label2.Text = "Work";
             // 
@@ -135,9 +133,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(365, 248);
+            this.label4.Location = new System.Drawing.Point(353, 163);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 24);
+            this.label4.Size = new System.Drawing.Size(41, 17);
             this.label4.TabIndex = 11;
             this.label4.Text = "Break";
             // 
@@ -147,9 +146,10 @@
             this.backbtn.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.backbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backbtn.Location = new System.Drawing.Point(13, 352);
+            this.backbtn.Location = new System.Drawing.Point(9, 229);
+            this.backbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.backbtn.Name = "backbtn";
-            this.backbtn.Size = new System.Drawing.Size(422, 39);
+            this.backbtn.Size = new System.Drawing.Size(394, 25);
             this.backbtn.TabIndex = 12;
             this.backbtn.Text = "Back";
             this.backbtn.UseVisualStyleBackColor = false;
@@ -157,10 +157,10 @@
             // 
             // TimerStartForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(447, 400);
+            this.ClientSize = new System.Drawing.Size(414, 266);
             this.Controls.Add(this.backbtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -171,7 +171,6 @@
             this.Controls.Add(this.lblTime);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "TimerStartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
