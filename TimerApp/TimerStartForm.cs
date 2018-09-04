@@ -41,10 +41,13 @@ namespace TimerApp
 
         private void StartTimer()
         {
-            btnResume.Enabled = false;
-            btnPause.Enabled = true;
-            //Updates the label every second
-            timer.Enabled = true;
+            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () {
+                btnResume.Enabled = false;
+                btnPause.Enabled = true;
+
+                //Updates the label every second
+                timer.Enabled = true;
+            });
         }
 
         private void EverySecondRefresh(object source, ElapsedEventArgs e)
@@ -61,12 +64,13 @@ namespace TimerApp
             DialogResult dialogResult = new DialogResult();
             timer.Stop();
             PlayMusic();
+
             if (state == 'W')
             {
                 _currentTime = _breakTime;
                 state = 'B';
                 lblTime.BackColor = Color.Cyan;
-                dialogResult = MessageBox.Show("Your break is starting now.", "Time to break", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                dialogResult = MessageBox.Show("Your break is starting now. Do you want to start the timer?", "Timer", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
             }
 
             else if (state == 'B')
@@ -74,7 +78,7 @@ namespace TimerApp
                 _currentTime = _workingTime;
                 state = 'W';
                 lblTime.BackColor = Color.HotPink;
-                dialogResult = MessageBox.Show("The end of the break!!!","The end",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                dialogResult = MessageBox.Show("Time to work. Do you want to start the timer?", "Timer",MessageBoxButtons.YesNo,MessageBoxIcon.Asterisk);
             }
 
             //After clicking on messagebox, stop the music
@@ -82,6 +86,11 @@ namespace TimerApp
 
             //Update Label and start button using Invoke
             this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate () { lblTime.Text = _currentTime.ToString("mm:ss"); btnResume.Enabled = true; });
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                StartTimer();
+            }
         }
 
         private void PlayMusic()
